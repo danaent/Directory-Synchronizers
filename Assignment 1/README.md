@@ -14,7 +14,7 @@ Running ```make all``` creates three executable files: ```fss_manager```, ```fss
 To begin, run the following. Make sure both ```fss_manager``` and ```worker``` have been compiled.
 
 ```
-./fss_manager -c <config_file> -l <manager_logfile> [-n worker_limit]
+./fss_manager -c <config_file> -l <manager_logfile> -n worker_limit
 ```
 
 - ```<config_file>``` is a file that contains pairs of directories. The file should have the form:
@@ -30,8 +30,8 @@ To begin, run the following. Make sure both ```fss_manager``` and ```worker``` h
 
 These are the pairs of directories that will be monitored and synchronized.
 
-- ```<manager_logfile>``` is the file where fss_manager's log messages will be written.
-- ```<worker_limit>```: This is the maximum number of worker processes that can be running at the same time. If not set, the default is 5.
+- ```<manager_logfile>``` is the file where ```fss_manager```'s log messages will be written.
+- ```<worker_limit>``` is an optional flag. It is the maximum number of worker processes that can be running at the same time. If not set, the default is 5.
 
 
 Now all directory pairs should be identical. Every change in a source directory should be mirrored to the target directory.
@@ -45,11 +45,9 @@ For the command-line interface, at a different terminal run:
 - ```<console_logfile>``` is the file where fss_console's log messages will be written. It should be different from ```<manager_logfile>```.
 
 
-Now you can input any command from the ones below.
+Now you can input any command from the ones below. Each command is executed only after the previous one has fully finished.
 
 ## Commands
-
-Each command is executed only after the previous one has fully finished.
 
 ```
 add <source_dir> <target_dir>
