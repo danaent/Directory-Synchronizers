@@ -1,7 +1,6 @@
-# Directory Synchronizer
+# Real-time Directory Synchronizer
 
-
-This project was developed as part of the Systems Programming course (Κ24) at UoA's Department of Informatics and Telecommunications. It is a directory synchronization tool that monitors a list of source and target directory pairs and ensures that the target directory remains identical to the source directory. The program only works with flat directories, i.e. directories that only contain regular files.
+This is a directory synchronization tool that monitors a list of source and target directory pairs and ensures that the target directory remains identical to the source directory. The program only works with flat directories, i.e. directories that only contain regular files.
 
 Directories are monitored using the inotify library. All changes to the source directories (file creation, deletion and modification), are immediately replicated to the target directories. Each change is assigned as a task to different worker process that is created using ```fork()``` and ```exec()```. This allows for multiple synchronization jobs to be running independently of each other and of the main program. The project also includes a command-line interface for adding new source-target pairs, canceling the monitoring of existing pairs and checking the status of monitored pairs.
 
